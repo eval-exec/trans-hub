@@ -110,6 +110,13 @@ func getExplorerMetrisc() {
 		return
 	}
 
+	defer func(){
+		err := resp.Body.Close()
+		if err != nil {
+			logs.Error("fetch explorer metrics erorr %s",err.Error())
+		}
+	}()
+
 	exbyte, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		logs.Error("read metrics error")
@@ -160,6 +167,13 @@ func getCrawerMetrisc() {
 		return
 	}
 
+
+	defer func(){
+		err := resp.Body.Close()
+		if err != nil {
+			logs.Error("fetch explorer metrics erorr %s",err.Error())
+		}
+	}()
 	exbyte, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		logs.Error("read metrics error")
@@ -224,6 +238,6 @@ func main() {
 		logs.Info("crawler fetch finish")
 		pushAllToGateway()
 		logs.Info("push all finish ")
-		time.Sleep(1 * time.Second)
+		time.Sleep(20 * time.Second)
 	}
 }
