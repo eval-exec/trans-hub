@@ -72,31 +72,37 @@ func initPro() {
 	ExplorerProAlive = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: lambda_explorer_is_alive,
 		Help: "check lambda_explorer is alive",
+		ConstLabels: prometheus.Labels{"instance": "testnet_lambda_local_explorer_for_test", "role": "test_net_explorer","provider":"Amazon","location":"Amazon","moniker":"lambda_testnet_explorer"},
 	})
 
 	ExplorerProHomeVisited = promauto.NewCounter(prometheus.CounterOpts{
 		Name: lambda_explorer_homepage_visited_count,
 		Help: "homepage visited count, when visited, count++ ",
+		ConstLabels: prometheus.Labels{"instance": "testnet_lambda_local_explorer_for_test", "role": "test_net_explorer","provider":"Amazon","location":"Amazon","moniker":"lambda_testnet_explorer"},
 	})
 
 	ExplorerProValidatorsVisited = promauto.NewCounter(prometheus.CounterOpts{
 		Name: lambda_explorer_validators_list_visited_count,
 		Help: "validator lists visited count",
+		ConstLabels: prometheus.Labels{"instance": "testnet_lambda_local_explorer_for_test", "role": "test_net_explorer","provider":"Amazon","location":"Amazon","moniker":"lambda_testnet_explorer"},
 	})
 
 	ExplorerProDBHeight = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: lambda_explorer_latest_height_from_db,
 		Help: "get latest block height from database",
+		ConstLabels: prometheus.Labels{"instance": "testnet_lambda_local_explorer_for_test", "role": "test_net_explorer","provider":"Amazon","location":"Amazon","moniker":"lambda_testnet_explorer"},
 	})
 
 	CrawlerProChainHeight = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: lambda_crawler_latest_height_from_chain,
 		Help: "get latest block height from block chain",
+		ConstLabels: prometheus.Labels{"instance": "testnet_lambda_local_explorer_for_test", "role": "test_net_explorer","provider":"Amazon","location":"Amazon","moniker":"lambda_testnet_explorer"},
 	})
 
 	CrawlerProAlive = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: lambda_crawler_is_alive,
 		Help: "check lambda_crawler is alive",
+		ConstLabels: prometheus.Labels{"instance": "testnet_lambda_local_explorer_for_test", "role": "test_net_explorer","provider":"Amazon","location":"Amazon","moniker":"lambda_testnet_explorer"},
 	})
 }
 
